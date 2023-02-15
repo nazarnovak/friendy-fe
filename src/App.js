@@ -5,15 +5,21 @@ import { Mixpanel } from './Mixpanel.js';
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const App = () => {
+  let statusText = 'Make a friend';
+//  if (window.location.pathname == 'you') {
+//    statusText = 'Your values';
+//  }
+
   return (
     <div className="App">
         <Header />
-        <Status />
+        <Status text={statusText} />
         <BrowserRouter>
             <Routes>
                 <Route exact path="/you" element={<You />} />
                 <Route exact path="/friends" element={<Friends />} />
                 <Route exact path="/search" element={<Search />} />
+                <Route exact path="/" element={<Landing />} />
             </Routes>
         </BrowserRouter>
     </div>
@@ -34,7 +40,7 @@ const Header: React.Component = () => {
   return (
       <React.Fragment>
       <header id="header">
-        <div id="logo">friendy.me</div>
+        <div id="logo">friendy</div>
         <ContactUsButton handleClick={openModalWindow} />
         <ContactUsModal isOpen={modalOpen} closeModal={closeModalWindow} />
       </header>
@@ -58,13 +64,56 @@ const ContactUsModal = ({isOpen, closeModal}) => {
   );
 }
 
-const Status = () => {
+const Status = ({text}) => {
     return (
         <div id="status">
-            Your values
+            {text}
         </div>
     );
 };
+
+const Landing = () => {
+  return (
+    <div id="content">
+      <h1>Find likedminded people. Talk about what's important to you. Make lifelong friends</h1>
+      <div>
+        Are you tired of how hard it is to find quality friends online? Do you feel like you
+      don’t know where to search for them? Maybe you find people that seem cool, but eventually
+      you lose interest or get ghosted?
+      </div>
+
+      <div id="how-does-it-work">
+      <h1>
+        How does it work
+      </h1>
+      <div className="showcase-screenshot"></div>
+      <div className="body-bold">1. Tell us about yourself</div>
+      <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+      a galley of type and scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting</div>
+
+      <div className="showcase-screenshot"></div>
+      <div className="body-bold">1. Tell us about yourself</div>
+      <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+      a galley of type and scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting</div>
+
+      <div className="showcase-screenshot"></div>
+      <div className="body-bold">1. Tell us about yourself</div>
+      <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+      a galley of type and scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting</div>
+      </div>
+
+      <div className="centered-content">
+        <button id="cta">Make a best friend</button>
+      </div>
+    </div>
+  );
+}
 
 const You = () => {
 //    Mixpanel.identify(1);
