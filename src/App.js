@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { Mixpanel } from './Mixpanel.js';
+// import { Mixpanel } from './Mixpanel.js';
 
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
 
@@ -73,6 +73,38 @@ const Status = ({text}) => {
 };
 
 const Landing = () => {
+  const handleCTAClick = async () => {
+    // TODO: In prod this is /api/test
+    let url = '/api/test';
+
+    if (process.env.NODE_ENV === 'development') {
+      url = '/test';
+    }
+
+    let params = {
+      Msg: 'hehehe',
+    };
+
+    let json;
+    try {
+      let response = await fetch(url, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // credentials: 'include',
+        body: JSON.stringify(params)
+      });
+
+      json = await response.json();
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+
+    console.log(json);
+  };
+
   return (
     <div id="content">
       <h1>Find likedminded people. Talk about what's important to you. Make lifelong friends</h1>
@@ -109,7 +141,7 @@ const Landing = () => {
       </div>
 
       <div className="centered-content">
-        <button id="cta">Make a best friend</button>
+        <button id="cta" onClick={handleCTAClick}>Make a best friend</button>
       </div>
     </div>
   );
