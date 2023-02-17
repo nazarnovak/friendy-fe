@@ -1,9 +1,6 @@
 {
   "name": "friendy-fe",
   "version": "0.1.0",
-  "proxy": "http://localhost:8080",
-  "disableHostCheck": true, // Solution to fix a random Invalid Host header problem now in DO
-  // Seems like some WebPack stuff. This is insecure, but no idea bout better way: https://stackoverflow.com/questions/43650550/invalid-host-header-in-when-running-react-app
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

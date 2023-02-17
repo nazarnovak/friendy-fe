@@ -74,17 +74,18 @@ const Status = ({text}) => {
 
 const Landing = () => {
   const handleCTAClick = async () => {
-    // TODO: In prod this is /api/test
-    let url = '/api/test';
+    // In prod this is /api/test
+    let url = 'http://friendy-fe-kkrep.ondigitalocean.app/api/test';
 
     if (process.env.NODE_ENV === 'development') {
-      url = '/test';
+      url = 'http://localhost:8080/test';
     }
 
     let params = {
       Msg: 'hehehe',
     };
 
+    console.log('URL:', url);
     let json;
     try {
       let response = await fetch(url, {
