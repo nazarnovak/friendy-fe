@@ -75,7 +75,7 @@ const Status = ({text}) => {
 const Landing = () => {
   const handleCTAClick = async () => {
     // In prod this is /api/test
-    let url = 'http://friendy-fe-kkrep.ondigitalocean.app/api/test';
+    let url = 'https://friendy-fe-kkrep.ondigitalocean.app/api/test';
 
     if (process.env.REACT_APP_STAGE === 'dev') {
       url = 'http://localhost:8080/api/test';
