@@ -128,8 +128,11 @@ const Landing = () => {
       let wsUrl = 'wss://friendy.me/api/ws';
 
       if (process.env.REACT_APP_STAGE === 'dev') {
-        wsUrl = 'ws://localhost:8080/ws';
+        wsUrl = 'ws://localhost:8080/wss';
       }
+
+      console.log(process.env.REACT_APP_STAGE);
+      console.log(wsUrl);
 
       try {
         ws = await new WebSocket(wsUrl);
