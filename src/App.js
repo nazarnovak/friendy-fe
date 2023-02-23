@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
 
+// import videoFile from './1920restaurant.mp4';
+
 const App = () => {
   let statusText = 'Make a friend';
 //  if (window.location.pathname == 'you') {
@@ -105,6 +107,58 @@ const Landing = () => {
 
     console.log(json);
   };
+
+  const onWSOpen = () => {
+    console.log("WebSocket connection opened");
+  }
+
+  const onWSClose = () => {
+    console.log("WebSocket connection closed");
+  }
+
+  const onWSMessage = () => {
+    return (e) => {
+      console.log("WebSocket message received:", e);
+    }
+  }
+
+  const connectToWs = async () => {
+      // Connect to WS
+      let ws;
+      let wsUrl = 'wss://friendy.me/api/ws';
+
+      if (process.env.REACT_APP_STAGE === 'dev') {
+        wsUrl = 'ws://localhost:8080/ws';
+      }
+
+      try {
+        ws = await new WebSocket(wsUrl);
+        if (ws === undefined) {
+          throw new Error("Could not connect to ws");
+        }
+      } catch (err) {
+        console.log(err);
+        return false;
+      }
+
+      ws.binaryType = "arraybuffer";
+
+      ws.onopen = onWSOpen;
+      ws.onclose = onWSClose;
+      ws.onmessage = onWSMessage();
+
+      setTimeout(function() {
+        ws.send("TESTERING HERE");
+      }, 3000);
+      return true;
+    }
+
+    connectToWs();
+
+// TODO: Is this (video) cool or what!?
+//      <video id="video" autoPlay loop muted>
+//          <source src={videoFile} type='video/mp4' />
+//      </video>
 
   return (
     <div id="content">

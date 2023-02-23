@@ -88,6 +88,13 @@ h1 {
 }
 
 /* Landing page */
+#video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .showcase-screenshot {
   width: 100%;
   height: 80px;
