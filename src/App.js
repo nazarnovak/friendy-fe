@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { Mixpanel } from './Mixpanel.js';
 
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
@@ -131,9 +131,6 @@ const Landing = () => {
         wsUrl = 'ws://localhost:8080/wss';
       }
 
-      console.log(process.env.REACT_APP_STAGE);
-      console.log(wsUrl);
-
       try {
         ws = await new WebSocket(wsUrl);
         if (ws === undefined) {
@@ -156,7 +153,9 @@ const Landing = () => {
       return true;
     }
 
-    connectToWs();
+    useEffect(() => {
+        connectToWs();
+    }, []);
 
 // TODO: Is this (video) cool or what!?
 //      <video id="video" autoPlay loop muted>
