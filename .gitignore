@@ -8,6 +8,9 @@
 # IDE
 .idea
 
+# Stripe secrets
+stripe_secret_key
+
 # testing
 /coverage
 
