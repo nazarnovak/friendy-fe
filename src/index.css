@@ -1,12 +1,12 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
+  color: #000;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,8 +39,8 @@ h1 {
   height: 32px;
   font-size: 32px;
   line-height: 32px;
-  color: #0066CC;
-/*  text-shadow:
+  color: #0066cc;
+  /*  text-shadow:
     -1px -1px 0 #FFF,
     1px -1px 0 #FFF,
     -1px 1px 0 #FFF,
@@ -48,7 +48,7 @@ h1 {
 */
 }
 
-#contact-us {
+#sign-in {
   height: 30px;
   padding: 0 16px;
   border: 1px solid rgba(0, 102, 204, 0.4);
@@ -58,7 +58,11 @@ h1 {
   font-size: 16px;
 }
 
-#contact-us-modal {
+#sign-in:hover {
+  background: rgba(0, 72, 154, 0.4);
+}
+
+/* #contact-us-modal {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -69,11 +73,11 @@ h1 {
   align-items: center;
   justify-content: center;
   z-index: 1;
-}
+} */
 
 #status {
   height: 48px;
-  border: 3px solid #0066CC;
+  border: 3px solid #0066cc;
   border-radius: 5px;
   background: #001320;
   display: flex;
@@ -88,13 +92,19 @@ h1 {
 }
 
 /* Landing page */
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("./friends-sunset.jpg");
+  background-size: 100%;
+}
+
 #video-tint:before {
   position: relative;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0,0,0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 #video {
