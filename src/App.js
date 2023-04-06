@@ -8,6 +8,7 @@ import { stripePromise, stripeOptions } from "./Stripe";
 
 import { Header } from "./Header";
 import { Landing } from "./Landing";
+import { Payment } from "./Payment";
 
 const App = () => {
   return (
@@ -20,7 +21,10 @@ const App = () => {
             <Route exact path="/friends" element={<Friends />} />
             <Route exact path="/search" element={<Search />} />
 
+            {/* Registration flow */}
             <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/payment" element={<Payment />} />
+
             <Route exact path="/signin" element={<SignIn />} />
             <Route exact path="/" element={<Landing />} />
           </Routes>
@@ -90,6 +94,10 @@ const SignIn = () => {
 // TODO: Pass email here from Landing somehow. Maybe split code, cus hard to see
 // anything here already
 const SignUp = () => {
+  const toPayment = () => {
+    window.location.href = "/payment";
+  };
+
   return (
     <div>
       <h1>Create a password</h1>
@@ -103,6 +111,11 @@ const SignUp = () => {
         placeholder="prefilled.email@from.previous.page"
       />
       <input name="password" type="password" />
+      <input name="collaborate" type="checkbox" />
+      <label htmlFor="collaborate">
+        I want to work together with the founder to improve the platform
+      </label>
+      <button onClick={toPayment}>Next</button>
     </div>
   );
 };
