@@ -1,32 +1,8 @@
-import { loadStripe } from "@stripe/stripe-js";
-
 import {
   useStripe,
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
-
-// // Test
-// const publicKey =
-//   "pk_test_51MoTPZHbbDaXSUVRdOICX0kGZr14MGxj4DYIDvSQnRmwUv7N2G42pHHVQWU2PWvrthkwYS8RJnZZH0Vhw2K3rcST00c9sxuq8F";
-
-// Live
-const publicKey =
-  "pk_test_51MoTPZHbbDaXSUVRdOICX0kGZr14MGxj4DYIDvSQnRmwUv7N2G42pHHVQWU2PWvrthkwYS8RJnZZH0Vhw2K3rcST00c9sxuq8F";
-
-// For now I just generated it with curl, needs to be on the BE tho per every transaction:
-// (-u accepts the secret key, saved in stripe_secret_key locally, but not pushed,
-// or sk_ value from the API keys on the Stripe website)
-// curl https://api.stripe.com/v1/payment_intents -d amount=100 -d currency=eur -d "payment_method_types[]"=card -u <sk_> -d "capture_method"=manual
-const clientSecret =
-  "pi_3MtpQiHbbDaXSUVR0qKVW7u9_secret_y88lka8Av1ZXWvv7alhaCv4IA";
-
-export const stripePromise = loadStripe(publicKey);
-
-export const stripeOptions = {
-  // passing the client secret obtained from the server
-  clientSecret: clientSecret,
-};
 
 export const Stripe: React.Component = () => {
   // Stripe
@@ -63,9 +39,11 @@ export const Stripe: React.Component = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <PaymentElement />
-      <button disabled={!stripe}> Pay </button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <PaymentElement />
+        <button disabled={!stripe}> Pay </button>
+      </form>
+    </div>
   );
 };

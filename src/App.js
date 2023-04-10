@@ -3,9 +3,6 @@ import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 
 // import { Mixpanel } from './Mixpanel.js';
 // Stripe
-import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise, stripeOptions } from "./Stripe";
-
 import { Header } from "./Header";
 import { Landing } from "./Landing";
 import { Payment } from "./Payment";
@@ -15,20 +12,18 @@ const App = () => {
     <div className="App">
       <Header />
       <BrowserRouter>
-        <Elements stripe={stripePromise} options={stripeOptions}>
-          <Routes>
-            <Route exact path="/you" element={<You />} />
-            <Route exact path="/friends" element={<Friends />} />
-            <Route exact path="/search" element={<Search />} />
+        <Routes>
+          <Route exact path="/you" element={<You />} />
+          <Route exact path="/friends" element={<Friends />} />
+          <Route exact path="/search" element={<Search />} />
 
-            {/* Registration flow */}
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/payment" element={<Payment />} />
+          {/* Registration flow */}
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/payment" element={<Payment />} />
 
-            <Route exact path="/signin" element={<SignIn />} />
-            <Route exact path="/" element={<Landing />} />
-          </Routes>
-        </Elements>
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/" element={<Landing />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
