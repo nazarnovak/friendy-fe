@@ -11,7 +11,7 @@ import { Elements } from "@stripe/react-stripe-js";
 
 // Live
 const publicKey =
-  "pk_live_51MoTPZHbbDaXSUVRMJhsEjHVhGnsUGUcAXtZgF8GYpWZoVV37JXyKohVILnV2tnLnYvjlWjGKX4N5GWOzMH7TnH300aEBuf1di";
+  "pk_live_51MoTPZHbbDaXSUVRO84iMNIWHdvwCXROhvHKNZZijrVsBkEBv8Ywh20q52IlWVjJvKgirs57Xa0H8CGJuj3kLHzE001s7pFs6d";
 
 const stripePromise = loadStripe(publicKey);
 
