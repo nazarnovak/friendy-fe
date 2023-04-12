@@ -5,7 +5,15 @@ import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 // Stripe
 import { Header } from "./Header";
 import { Landing } from "./Landing";
+
 import { Payment } from "./Payment";
+
+import { Profile } from "./Profile";
+import { YourValues } from "./YourValues";
+import { FriendValues } from "./FriendValues";
+
+import { Searching } from "./Searching";
+import { Chat } from "./Chat";
 
 const App = () => {
   return (
@@ -20,6 +28,14 @@ const App = () => {
           {/* Registration flow */}
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/payment" element={<Payment />} />
+
+          {/* Product flow */}
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/your-values" element={<YourValues />} />
+          <Route exact path="/friend-values" element={<FriendValues />} />
+
+          <Route exact path="/searching" element={<Searching />} />
+          <Route exact path="/chat" element={<Chat />} />
 
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/" element={<Landing />} />

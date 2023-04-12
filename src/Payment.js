@@ -17,6 +17,7 @@ const stripePromise = loadStripe(publicKey);
 
 export const Payment = () => {
   const [clientSecret, setClientSecret] = useState("");
+  const [paymentInProcess, setPaymentInProcess] = useState(false);
 
   let stripeOptions;
 
@@ -57,10 +58,11 @@ export const Payment = () => {
   return (
     <div>
       <h1>Payment</h1>
-      {!clientSecret && "Loading..."}
+      {!clientSecret && "Loading elements..."}
+      {paymentInProcess && "Payment in process..."}
       {clientSecret && (
         <Elements stripe={stripePromise} options={stripeOptions}>
-          <Stripe />
+          <Stripe setPaymentInProcess={setPaymentInProcess} />
         </Elements>
       )}
       {/* How to name this better? I want the user to know what's the next step,

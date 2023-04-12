@@ -4,7 +4,7 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 
-export const Stripe: React.Component = () => {
+export const Stripe: React.Component = ({ setPaymentInProcess }) => {
   // Stripe
   const stripe = useStripe();
   const elements = useElements();
@@ -17,8 +17,11 @@ export const Stripe: React.Component = () => {
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
+      console.log("Stripe or elements not loaded, please contact support");
       return;
     }
+
+    setPaymentInProcess(true);
 
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element
@@ -30,8 +33,10 @@ export const Stripe: React.Component = () => {
 
     if (result.error) {
       // Show error to your customer (for example, payment details incomplete)
+      setPaymentInProcess(false);
       console.log(result.error.message);
     } else {
+      setPaymentInProcess(false);
       // Your customer will be redirected to your `return_url`. For some payment
       // methods like iDEAL, your customer will be redirected to an intermediate
       // site first to authorize the payment, then redirected to the `return_url`.

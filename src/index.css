@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  color: #000;
+  color: #fff;
 }
 
 body {
@@ -93,7 +93,7 @@ h1 {
 
 /* Landing page */
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("./friends-sunset.jpg");
   background-size: 100%;
 }
