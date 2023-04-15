@@ -33,10 +33,9 @@ export const Stripe: React.Component = ({ setPaymentInProcess }) => {
       },
     });
 
-    sendTracking(4);
-
     if (result.error) {
       // Show error to your customer (for example, payment details incomplete)
+      sendTracking(4);
       setPaymentInProcess(false);
       console.log(result.error.message);
     } else {

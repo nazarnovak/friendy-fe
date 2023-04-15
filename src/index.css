@@ -15,6 +15,10 @@ body {
   line-height: 24px;
 }
 
+input {
+  color: #000;
+}
+
 h1 {
   font-size: 28px;
   line-height: 40px;

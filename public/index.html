@@ -39,5 +39,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- 1. Add one of the generated cookie consent forms
+    2. Add a javascript that checks if cookie is set, and if not - set it with UUID of anonymous user
+    3. The script from 2 will load only when user allows it
+    4. Worth also setting anonymous UUID only when the user is not logged in (check if signed in cookie 
+    is present too, and not set it then)
+    5. Might be worth sending an event for the time a user decided not to allow -->
   </body>
 </html>

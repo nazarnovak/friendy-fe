@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { sendTracking } from "./utils";
 
 export const Landing = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   //   const [ws, setWs] = useState(null);
 
@@ -9,10 +13,8 @@ export const Landing = () => {
     sendTracking(1);
   }, []);
 
-  const handleCTAClick = async () => {
-    window.location.href = "/sign-up";
-
-    console.log("Got email:", email);
+  const handleCTAFormSubmit = async () => {
+    navigate("/sign-up", { state: { email } });
 
     // WS TEST WOOP
     //     if (!ws) {
@@ -112,7 +114,7 @@ export const Landing = () => {
           Enter your email to start your journey now
         </div>
 
-        <CTA setEmail={setEmail} handleCTAClick={handleCTAClick} />
+        <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
         <div id="how-does-it-work">
           <h1>How does it work</h1>
           <div className="body-bold">1. Tell us about yourself</div>
@@ -145,25 +147,26 @@ export const Landing = () => {
           </div>
           <div className="showcase-screenshot"></div>
         </div>
-        <CTA setEmail={setEmail} handleCTAClick={handleCTAClick} />
+        <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
       </div>
     </div>
   );
 };
 
-const CTA = ({ setEmail, handleCTAClick }) => {
+const CTA = ({ setEmail, handleCTAFormSubmit }) => {
   return (
-    <div className="centered-content">
+    <form className="centered-content" onSubmit={handleCTAFormSubmit}>
       <input
         id="email"
         name="email"
+        type="email"
         style={{ color: "black" }}
         onChange={(e) => setEmail(e.target.value)}
       />
       <br />
-      <button id="cta" onClick={handleCTAClick}>
+      <button id="cta" type="submit">
         Make a best friend
       </button>
-    </div>
+    </form>
   );
 };
