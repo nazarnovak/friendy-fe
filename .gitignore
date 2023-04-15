@@ -8,8 +8,8 @@
 # IDE
 .idea
 
-# Stripe secrets
-stripe_secret_key
+# VS Code workspace file. Helps keep FE and BE in the same project
+friendy.code-workspace
 
 # testing
 /coverage

@@ -1,13 +1,15 @@
+import { useEffect } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
-import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 
-// import { Mixpanel } from './Mixpanel.js';
-// Stripe
+import { sendTracking } from "./utils";
+
 import { Header } from "./Header";
 import { Landing } from "./Landing";
 
 import { Payment } from "./Payment";
 
+import { Welcome } from "./Welcome";
 import { Profile } from "./Profile";
 import { YourValues } from "./YourValues";
 import { FriendValues } from "./FriendValues";
@@ -21,68 +23,30 @@ const App = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/you" element={<You />} />
-          <Route exact path="/friends" element={<Friends />} />
-          <Route exact path="/search" element={<Search />} />
+          <Route path="*" element={<NotFound />} />
 
-          {/* Registration flow */}
-          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/sign-in" element={<SignIn />} />
+
+          {/* Marketing flow */}
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/sign-up" element={<SignUp />} />
           <Route exact path="/payment" element={<Payment />} />
 
           {/* Product flow */}
+          <Route exact path="/welcome" element={<Welcome />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/your-values" element={<YourValues />} />
           <Route exact path="/friend-values" element={<FriendValues />} />
-
           <Route exact path="/searching" element={<Searching />} />
           <Route exact path="/chat" element={<Chat />} />
-
-          <Route exact path="/signin" element={<SignIn />} />
-          <Route exact path="/" element={<Landing />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 };
 
-const You = () => {
-  //    Mixpanel.identify(1);
-
-  //    Mixpanel.track('Opened the page');
-
-  //    const onClickedRadio = () => {
-  //        Mixpanel.track('Pressed radiobutton');
-  //    };
-
-  return (
-    <div id="content">
-      <p>You</p>
-      <p>Scenario 1</p>
-      <div>
-        <input
-          type="radio"
-          id="scenario11"
-          name="scenario1"
-          value="1" /*onClick={onClickedRadio}*/
-        />
-        <label htmlFor="scenario11">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario12" name="scenario1" value="1" />
-        <label htmlFor="scenario12">2</label>
-      </div>
-      <p>Scenario 2</p>
-      <div>
-        <input type="radio" id="scenario21" name="scenario2" value="1" />
-        <label htmlFor="scenario21">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario22" name="scenario2" value="1" />
-        <label htmlFor="scenario22">2</label>
-      </div>
-      <Link to={"/friends"}>Next page</Link>
-    </div>
-  );
+const NotFound = () => {
+  return <h1>Not found! :(</h1>;
 };
 
 const SignIn = () => {
@@ -105,6 +69,10 @@ const SignIn = () => {
 // TODO: Pass email here from Landing somehow. Maybe split code, cus hard to see
 // anything here already
 const SignUp = () => {
+  useEffect(() => {
+    sendTracking(2);
+  }, []);
+
   const toPayment = () => {
     window.location.href = "/payment";
   };
@@ -127,59 +95,6 @@ const SignUp = () => {
         I want to work together with the founder to improve the platform
       </label>
       <button onClick={toPayment}>Next</button>
-    </div>
-  );
-};
-
-const Friends = () => {
-  return (
-    <div id="content">
-      <p>Friends</p>
-      <p>Friend question 1</p>
-      <div>
-        <input type="radio" id="scenario11" name="scenario1" value="1" />
-        <label for="scenario11">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario12" name="scenario1" value="1" />
-        <label for="scenario12">2</label>
-      </div>
-      <p>Friend question 2</p>
-      <div>
-        <input type="radio" id="scenario21" name="scenario2" value="1" />
-        <label for="scenario21">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario22" name="scenario2" value="1" />
-        <label for="scenario22">2</label>
-      </div>
-      <Link to={"/search"}>Next page</Link>
-    </div>
-  );
-};
-
-const Search = () => {
-  return (
-    <div id="content">
-      <p>Search</p>
-      <p>Search stuff 1</p>
-      <div>
-        <input type="radio" id="scenario11" name="scenario1" value="1" />
-        <label for="scenario11">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario12" name="scenario1" value="1" />
-        <label for="scenario12">2</label>
-      </div>
-      <p>Search stuff 1</p>
-      <div>
-        <input type="radio" id="scenario21" name="scenario2" value="1" />
-        <label for="scenario21">1</label>
-      </div>
-      <div>
-        <input type="radio" id="scenario22" name="scenario2" value="1" />
-        <label for="scenario22">2</label>
-      </div>
     </div>
   );
 };

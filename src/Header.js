@@ -13,7 +13,7 @@ export const Header: React.Component = () => {
 
 const SignInButton = () => {
   const handleClick = () => {
-    window.location.href = "/signin";
+    window.location.href = "/sign-in";
   };
 
   return (

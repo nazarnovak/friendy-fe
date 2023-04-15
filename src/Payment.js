@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+
 import { loadStripe } from "@stripe/stripe-js";
-
 import { Stripe } from "./Stripe";
-
 import { Elements } from "@stripe/react-stripe-js";
+
+import { sendTracking } from "./utils";
 
 // // Test
 // const publicKey =
@@ -27,6 +28,8 @@ export const Payment = () => {
   };
 
   useEffect(() => {
+    sendTracking(3);
+
     const getStripeClientSecret = async () => {
       let url = "https://friendy-fe-kkrep.ondigitalocean.app/api/stripe";
 

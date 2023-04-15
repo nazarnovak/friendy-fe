@@ -4,6 +4,8 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 
+import { sendTracking } from "./utils";
+
 export const Stripe: React.Component = ({ setPaymentInProcess }) => {
   // Stripe
   const stripe = useStripe();
@@ -27,9 +29,11 @@ export const Stripe: React.Component = ({ setPaymentInProcess }) => {
       //`Elements` instance that was used to create the Payment Element
       elements,
       confirmParams: {
-        return_url: "https://friendy.me/profile",
+        return_url: "https://friendy.me/welcome",
       },
     });
+
+    sendTracking(4);
 
     if (result.error) {
       // Show error to your customer (for example, payment details incomplete)

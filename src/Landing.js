@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { sendTracking } from "./utils";
 
 export const Landing = () => {
-  const [setEmail] = useState("");
+  const [email, setEmail] = useState("");
   //   const [ws, setWs] = useState(null);
 
+  useEffect(() => {
+    sendTracking(1);
+  }, []);
+
   const handleCTAClick = async () => {
-    window.location.href = "/signup";
+    window.location.href = "/sign-up";
+
+    console.log("Got email:", email);
 
     // WS TEST WOOP
     //     if (!ws) {
