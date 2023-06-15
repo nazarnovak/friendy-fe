@@ -105,57 +105,59 @@ export const Landing = () => {
   //   }, []);
 
   return (
-    <div id="landing">
-      <div id="content">
-        <h1>Chat with your new best friend that</h1>
-        <h1>supports you</h1>
-        <div>
-          Ready to find someone who understand you and makes you very happy?
-          Enter your email to start your journey now
-        </div>
-
-        <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
-        <div id="how-does-it-work">
-          <h1>How does it work</h1>
-          <div className="body-bold">1. Tell us about yourself</div>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting
-          </div>
-          <div className="showcase-screenshot"></div>
-
-          <div className="body-bold">1. Tell us about yourself</div>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting
-          </div>
-          <div className="showcase-screenshot"></div>
-
-          <div className="body-bold">1. Tell us about yourself</div>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting
-          </div>
-          <div className="showcase-screenshot"></div>
+    <>
+      <div id="first">
+        <div id="motto">
+          <h1>Chat with your new best friend that</h1>
+          <h1>supports you</h1>
         </div>
         <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
+        <div id="more"></div>
       </div>
-    </div>
+      <div id="how-does-it-work">
+        <h1>How does it work</h1>
+        <div className="body-bold">1. Tell us about yourself</div>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+        </div>
+        <div className="showcase-screenshot"></div>
+
+        <div className="body-bold">1. Tell us about yourself</div>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+        </div>
+        <div className="showcase-screenshot"></div>
+
+        <div className="body-bold">1. Tell us about yourself</div>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+        </div>
+        <div className="showcase-screenshot"></div>
+      </div>
+      <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
+    </>
   );
 };
 
 const CTA = ({ setEmail, handleCTAFormSubmit }) => {
   return (
-    <form className="centered-content" onSubmit={handleCTAFormSubmit}>
+    <form id="cta" className="centered-content" onSubmit={handleCTAFormSubmit}>
+      <div>
+        Ready to find someone who will improve your life and make you happy?
+        Enter your email to start your journey now
+      </div>
       <input
         id="email"
         name="email"
@@ -165,7 +167,7 @@ const CTA = ({ setEmail, handleCTAFormSubmit }) => {
       />
       <br />
       <button id="cta" type="submit">
-        Make a best friend
+        Find a best friend
       </button>
     </form>
   );

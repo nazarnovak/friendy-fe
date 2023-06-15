@@ -25,7 +25,7 @@ import { Chat } from "./Chat";
 
 const App = () => {
   return (
-    <div className="App">
+    <>
       <Header />
       <BrowserRouter>
         <Routes>
@@ -47,7 +47,7 @@ const App = () => {
           <Route exact path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 

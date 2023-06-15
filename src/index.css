@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
   color: #fff;
 }
 
@@ -13,6 +14,7 @@ body {
   background-color: #000;
   font-size: 20px;
   line-height: 24px;
+  padding: 0 24px;
 }
 
 input {
@@ -24,15 +26,11 @@ h1 {
   line-height: 40px;
 }
 
-body {
-  padding: 0 64px;
-}
-
 h1 {
   text-align: center;
 }
 
-#header {
+header {
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -55,8 +53,11 @@ h1 {
 #sign-in {
   height: 30px;
   padding: 0 16px;
-  border: 1px solid rgba(0, 102, 204, 0.4);
-  background: rgba(0, 102, 204, 0.4);
+  /* border: 1px solid rgba(0, 102, 204, 0.4); */
+  /* background: rgba(0, 102, 204, 0.4); */
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
   border-radius: 5px;
   line-height: 16px;
   font-size: 16px;
@@ -91,15 +92,43 @@ h1 {
   line-height: 32px;
 }
 
-#content {
-  padding: 16px 0;
+html,
+body {
+  height: 100%;
+}
+
+#first {
+  height: calc(100% - 80px);
+  /* padding: 16px 0; */
+  display: flex;
+  flex-direction: column;
+}
+
+#motto {
+  flex-basis: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#cta {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#more {
+  flex-basis: 5%;
+  background-color: red;
 }
 
 /* Landing page */
 body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("./friends-sunset.jpg");
-  background-size: 100%;
+    url("./friends.jpg");
 }
 
 #video-tint:before {
@@ -137,7 +166,7 @@ body {
   text-align: center;
 }
 
-#cta {
+#cta > button {
   height: 32px;
   padding: 0px 24px;
   border: 1px solid rgba(0, 102, 204, 1);

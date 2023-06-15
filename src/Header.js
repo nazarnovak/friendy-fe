@@ -3,7 +3,7 @@ import React from "react";
 export const Header: React.Component = () => {
   return (
     <React.Fragment>
-      <header id="header">
+      <header>
         <div id="logo">friendy</div>
         <SignInButton />
       </header>
