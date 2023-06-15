@@ -106,7 +106,9 @@ export const Landing = () => {
 
   return (
     <>
-      <div id="first">
+      <div id="landing-image"></div>
+      <div class="content">Test</div>
+      {/* <div id="first">
         <div id="motto">
           <h1>Chat with your new best friend that</h1>
           <h1>supports you</h1>
@@ -146,7 +148,7 @@ export const Landing = () => {
         </div>
         <div className="showcase-screenshot"></div>
       </div>
-      <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
+      <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} /> */}
     </>
   );
 };
