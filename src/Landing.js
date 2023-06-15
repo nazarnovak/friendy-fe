@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { sendTracking } from "./utils";
@@ -6,15 +6,16 @@ import { sendTracking } from "./utils";
 export const Landing = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  //   const [email, setEmail] = useState("");
   //   const [ws, setWs] = useState(null);
 
   useEffect(() => {
     sendTracking(1);
   }, []);
 
-  const handleCTAFormSubmit = async () => {
-    navigate("/sign-up", { state: { email } });
+  const HandleCTAClick = async () => {
+    //     navigate("/sign-up", { state: { email } });
+    navigate("/your-values");
 
     // WS TEST WOOP
     //     if (!ws) {
@@ -106,71 +107,48 @@ export const Landing = () => {
 
   return (
     <>
-      <div id="landing-image"></div>
-      <div class="content">Test</div>
-      {/* <div id="first">
-        <div id="motto">
-          <h1>Chat with your new best friend that</h1>
-          <h1>supports you</h1>
-        </div>
-        <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} />
-        <div id="more"></div>
+      <div id="landing-image-wrapper">
+        <div id="landing-image-top-gradient"></div>
+        <div id="landing-image-bottom-gradient"></div>
+        <img src="/friends.jpg" alt="Friends smiling" id="landing-image" />
       </div>
-      <div id="how-does-it-work">
-        <h1>How does it work</h1>
-        <div className="body-bold">1. Tell us about yourself</div>
-        <div>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting
-        </div>
-        <div className="showcase-screenshot"></div>
-
-        <div className="body-bold">1. Tell us about yourself</div>
-        <div>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting
-        </div>
-        <div className="showcase-screenshot"></div>
-
-        <div className="body-bold">1. Tell us about yourself</div>
-        <div>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting
-        </div>
-        <div className="showcase-screenshot"></div>
+      <div class="content">
+        <h1>Feel understood</h1>
+        <h1>Feel connected</h1>
+        <h1>Feel happy</h1>
+        <CTA HandleCTAClick={HandleCTAClick} />
       </div>
-      <CTA setEmail={setEmail} handleCTAFormSubmit={handleCTAFormSubmit} /> */}
     </>
   );
 };
 
-const CTA = ({ setEmail, handleCTAFormSubmit }) => {
+const CTA = ({ HandleCTAClick }) => {
   return (
-    <form id="cta" className="centered-content" onSubmit={handleCTAFormSubmit}>
-      <div>
-        Ready to find someone who will improve your life and make you happy?
-        Enter your email to start your journey now
-      </div>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        style={{ color: "black" }}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br />
-      <button id="cta" type="submit">
-        Find a best friend
+    <>
+      <p className="top-margin-double">
+        Tell us about who you are and what you need in a friend, and we’ll find
+        a person for you to chat with and be happy Enter your email below to
+        start your journey now
+      </p>
+      <button id="cta" className="top-margin-double" onClick={HandleCTAClick}>
+        Find connection
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="Hawkins-Icon Hawkins-Icon-Standard"
+          data-name="ChevronRight"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M7.29297 19.2928L14.5859 12L7.29297 4.70706L8.70718 3.29285L16.7072 11.2928C16.8947 11.4804 17.0001 11.7347 17.0001 12C17.0001 12.2652 16.8947 12.5195 16.7072 12.7071L8.70718 20.7071L7.29297 19.2928Z"
+            fill="currentColor"
+          ></path>
+        </svg>
       </button>
-    </form>
+    </>
   );
 };
