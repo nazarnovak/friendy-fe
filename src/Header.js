@@ -5,20 +5,33 @@ export const Header: React.Component = () => {
     <React.Fragment>
       <header>
         <div id="logo">friendy</div>
-        <SignInButton />
+        {/* <SignInButton /> */}
+        <ContactUsButton />
       </header>
     </React.Fragment>
   );
 };
 
-const SignInButton = () => {
+// const SignInButton = () => {
+//   const handleClick = () => {
+//     window.location.href = "/sign-in";
+//   };
+
+//   return (
+//     <button id="sign-in" onClick={handleClick}>
+//       Sign in
+//     </button>
+//   );
+// };
+
+const ContactUsButton = () => {
   const handleClick = () => {
-    window.location.href = "/sign-in";
+    window.location.href = "/contact-us";
   };
 
   return (
-    <button id="sign-in" onClick={handleClick}>
-      Sign in
+    <button class="menu-button" onClick={handleClick}>
+      Contact us
     </button>
   );
 };
