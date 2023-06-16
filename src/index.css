@@ -69,8 +69,16 @@ p {
   line-height: calc(var(--font-size-base) * 3);
 }
 
-.top-margin-double {
-  margin-top: calc(var(--font-size-base) * 2);
+.top-margin-triple {
+  margin-top: calc(var(--font-size-base) * 3);
+}
+
+.top-margin-six {
+  margin-top: calc(var(--font-size-base) * 6);
+}
+
+.top-margin-nine {
+  margin-top: calc(var(--font-size-base) * 9);
 }
 
 /* Header */
@@ -202,19 +210,45 @@ body {
   top: 56px;
   /* background-image: url("./friends.jpg"); */
   background-repeat: no-repeat;
-  /* left: 0px; */
-  background-size: 100%;
+  background-size: cover;
   width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+}
+
+#cta-text {
+  margin: calc(var(--font-size-base) * 3) auto 0 auto;
 }
 
 #cta {
   width: 100%;
+  max-width: 400px;
+  margin: calc(var(--font-size-base) * 3) auto 0 auto;
   height: calc(var(--font-size-base) * 6);
   background-color: var(--burgundy);
   color: var(--white);
   border-radius: 5px;
   font-size: 16px;
   line-height: calc(var(--font-size-base) * 2);
+  display: flex;
+  flex-direction: row;
+}
+
+#cta img {
+  width: 24px;
+  display: inline-block;
+  vertical-align: bottom;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#cta span {
+  display: inline-block;
+}
+
+#down-arrow {
+  width: 100%;
+  text-align: center;
 }
 
 #video-tint:before {
