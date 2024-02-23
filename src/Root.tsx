@@ -5,7 +5,7 @@ import "src/Root.css";
 
 import Header from "src/components/Header/Header";
 import ConsentBanner from "src/components/ConsentBanner/ConsentBanner";
-import FeedbackModal from "./components/FeedbackModal/FeedbackModal";
+import FeedbackModal from "src/components/FeedbackModal/FeedbackModal";
 
 const Root = () => {
   const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
