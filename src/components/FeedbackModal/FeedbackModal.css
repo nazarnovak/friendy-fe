@@ -54,7 +54,7 @@
   .modal {
     width: 700px;
     border: 1px solid white;
-   }
+  }
 }
 
 /* XXL */
@@ -62,7 +62,7 @@
   .modal {
     width: 800px;
     border: 1px solid white;
-   }
+  }
 }
 
 .modal-header {
@@ -146,8 +146,8 @@
 /* XL */
 @media (min-width: 1280px) and (max-width: 1440px) {
   .modal-body {
-      padding: calc(var(--font-size-base) * 4);
-    }
+    padding: calc(var(--font-size-base) * 4);
+  }
 }
 
 /* XXL */
@@ -177,7 +177,9 @@
   font-size: calc(var(--font-size-base) * 2.5);
 }
 
-select:focus, input:focus, textarea:focus {
+select:focus,
+input:focus,
+textarea:focus {
   outline: none;
   border: 1px solid #00f;
 }
