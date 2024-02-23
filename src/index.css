@@ -2,7 +2,17 @@
   --black: #000000;
   --white: #ffffff;
   --burgundy: #9c2d41;
-  --font-size-base: 8px;
+  --grid-base: 8px;
+  --font-4: 4px;
+  --font-8: 8px;
+  --font-12: 12px;
+  --font-16: 16px;
+  --font-24: 24px;
+  --font-32: 32px;
+  --font-48: 48px;
+  --font-64: 64px;
+  --font-96: 96px;
+  --font-128: 128px;
 }
 
 * {
@@ -12,15 +22,21 @@
   color: var(--white);
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
-  font-size: calc(var(--font-size-base) * 3);
-  line-height: calc(var(--font-size-base) * 3);
+  font-size: var(--font-24);
+  line-height: var(--font-24);
   min-width: 320px;
   max-width: 1264px; /* as recommended by https://uxdesign.cc/responsive-layout-grid-guide-for-designers-c3ba7d161bdf */
   margin: 0 auto;
@@ -29,269 +45,52 @@ body {
 @media (min-width: 0px) and (max-width: 320px) {
   header,
   .content {
-    padding: 0 calc(var(--font-size-base) * 1);
+    padding: 0 calc(var(--grid-base) * 1);
   }
 }
 
 @media (min-width: 321px) and (max-width: 655px) {
   header,
   .content {
-    padding: 0 calc(var(--font-size-base) * 2);
+    padding: 0 calc(var(--grid-base) * 2);
   }
 }
 
 @media (min-width: 656px) and (max-width: 1023px) {
   header,
   .content {
-    padding: 0 calc(var(--font-size-base) * 5);
+    padding: 0 calc(var(--grid-base) * 5);
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1392px) {
   header,
   .content {
-    padding: 0 calc(var(--font-size-base) * 8);
+    padding: 0 calc(var(--grid-base) * 8);
   }
 }
 
-input {
-  color: #000;
-}
-
 h1 {
-  font-size: 28px;
-  text-align: center;
-  line-height: calc(var(--font-size-base) * 5);
+  font-size: var(--font-48);
+  line-height: var(--font-48);
 }
 
-p {
-  font-size: 20px;
-  line-height: calc(var(--font-size-base) * 3);
+h2 {
+  font-size: var(--font-24);
+  line-height: var(--font-24);
 }
 
-.top-margin-triple {
-  margin-top: calc(var(--font-size-base) * 3);
-}
+/* S */
+@media (min-width: 360px) and (max-width: 655px) {}
 
-.top-margin-six {
-  margin-top: calc(var(--font-size-base) * 6);
-}
+/* M */
+@media (min-width: 656px) and (max-width: 1023px) {}
 
-.top-margin-nine {
-  margin-top: calc(var(--font-size-base) * 9);
-}
+/* L */
+@media (min-width: 1024px) and (max-width: 1279px) {}
 
-/* Header */
-header {
-  height: 56px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--black);
-}
+/* XL */
+@media (min-width: 1280px) and (max-width: 1440px) {}
 
-#logo {
-  height: calc(var(--font-size-base) * 4);
-  font-size: calc(var(--font-size-base) * 4);
-  line-height: calc(var(--font-size-base) * 4);
-  color: var(--burgundy);
-  font-family: "Calistoga", cursive;
-}
-
-.menu-button {
-  background: none;
-  font-size: calc(var(--font-size-base) * 2);
-  line-height: calc(var(--font-size-base) * 2);
-  font-family: "Inter", sans-serif;
-}
-
-#sign-in {
-  height: 30px;
-  padding: 0 16px;
-  /* border: 1px solid rgba(0, 102, 204, 0.4); */
-  /* background: rgba(0, 102, 204, 0.4); */
-  cursor: pointer;
-  line-height: 16px;
-  font-size: 16px;
-}
-
-#sign-in:hover {
-  background: rgba(0, 72, 154, 0.4);
-}
-
-/* #contact-us-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-} */
-
-/* Header */
-
-#status {
-  height: 48px;
-  border: 3px solid #0066cc;
-  border-radius: 5px;
-  background: #001320;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  line-height: 32px;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-#first {
-  height: calc(100% - 80px);
-  /* padding: 16px 0; */
-  display: flex;
-  flex-direction: column;
-}
-
-#motto {
-  flex-basis: 65%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#cta {
-  flex-basis: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#more {
-  flex-basis: 5%;
-  background-color: red;
-}
-
-/* Landing page */
-#landing-image-wrapper {
-  position: relative;
-}
-
-#landing-image-top-gradient {
-  position: absolute;
-  width: 100%;
-  height: 56px;
-  z-index: 2;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-}
-
-#landing-image-bottom-gradient {
-  position: absolute;
-  width: 100%;
-  height: 56px;
-  z-index: 2;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1)
-  );
-  bottom: 0px;
-}
-
-#landing-image {
-  /* position: absolute; */
-  top: 56px;
-  /* background-image: url("./friends.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  max-height: 50vh;
-  object-fit: cover;
-}
-
-#cta-text {
-  margin: calc(var(--font-size-base) * 3) auto 0 auto;
-}
-
-#cta {
-  width: 100%;
-  max-width: 400px;
-  margin: calc(var(--font-size-base) * 3) auto 0 auto;
-  height: calc(var(--font-size-base) * 6);
-  background-color: var(--burgundy);
-  color: var(--white);
-  border-radius: 5px;
-  font-size: 16px;
-  line-height: calc(var(--font-size-base) * 2);
-  display: flex;
-  flex-direction: row;
-}
-
-#cta img {
-  width: 24px;
-  display: inline-block;
-  vertical-align: bottom;
-  height: 20px;
-  margin-right: 10px;
-}
-
-#cta span {
-  display: inline-block;
-}
-
-#down-arrow {
-  width: 100%;
-  text-align: center;
-}
-
-#video-tint:before {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-#video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.showcase-screenshot {
-  width: 100%;
-  height: 80px;
-  background: #fff;
-  margin: 16px 0;
-}
-
-.body-bold {
-  font-weight: bold;
-}
-
-#how-does-it-work {
-  margin-bottom: 40px;
-}
-
-.centered-content {
-  text-align: center;
-}
-
-#cta > button {
-  height: 32px;
-  padding: 0px 24px;
-  border: 1px solid rgba(0, 102, 204, 1);
-  background: rgba(0, 102, 204, 1);
-  border-radius: 5px;
-  line-height: 24px;
-  font-size: 20px;
-}
+/* XXL */
+@media (min-width: 1440px) {}

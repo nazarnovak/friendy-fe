@@ -1,0 +1,2 @@
+export const SITE_URL = import.meta.env.DEV ? "http://localhost:5173" : "https://vite-d6k.pages.dev";
+export const BE_URL = import.meta.env.DEV ? "http://localhost:8080" : "https://go-boilerplate.fly.dev";
