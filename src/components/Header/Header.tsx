@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import "./Header.css";
 
 interface Props {

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 import "src/Root.css";
 
@@ -25,49 +24,38 @@ const Root = () => {
       <Benefits />
       <HowItWorks />
       <CTA />
+      <Footer />
     </>
   );
 };
 
-const HookStyled = styled.div`
-  background: darkblue;
-  text-align: center;
-`;
-
 const Hero = () => {
   return (
-    <HookStyled>
+    <div id="hero-wrapper">
       <h1>Main message</h1>
       <h2>Supporting/explainer text</h2>
-    </HookStyled>
+    </div>
   );
 };
 
-const BenefitsStyled = styled.div`
-  background: blue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const BenefitStyled = styled.div`
-  height: 160px;
-  display: flex;
-  align-items: center;
-`;
-
 const Benefits = () => {
   return (
-    <BenefitsStyled>
-      <BenefitStyled>Benefit 1</BenefitStyled>
-      <BenefitStyled>Benefit 2</BenefitStyled>
-      <BenefitStyled>Benefit 3</BenefitStyled>
-    </BenefitsStyled>
+    <div id="benefits-wrapper">
+      <div className="benefit">Benefit 1</div>
+      <div className="benefit">Benefit 2</div>
+      <div className="benefit">Benefit 3</div>
+    </div>
   );
 };
 
 const HowItWorks = () => {
-  return <div>How it works</div>;
+  return (
+    <div id="how-it-works-wrapper">
+      <div className="benefit">How it works 1</div>
+      <div className="benefit">How it works 2</div>
+      <div className="benefit">How it works 3</div>
+    </div>
+  );
 };
 
 const CTA = () => {
@@ -88,6 +76,10 @@ const CTA = () => {
       </div>
     </div>
   );
+};
+
+const Footer = () => {
+  return <div id="footer">Footer</div>;
 };
 
 export default Root;

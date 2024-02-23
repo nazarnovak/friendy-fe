@@ -27,12 +27,6 @@ html {
   line-height: var(--font-16);
 }
 
-html,
-body,
-#root {
-  height: 100%;
-}
-
 body {
   font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
