@@ -6,10 +6,10 @@ header {
   align-items: center;
   background: linear-gradient(
     135deg,
-    rgba(32, 32, 32, 0.7) 0%,
+    rgba(32, 32, 64, 0.4) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #333;
 }
 
 #logo {
@@ -28,10 +28,10 @@ header {
   padding: 5px 15px;
   background: linear-gradient(
     225deg,
-    rgba(32, 32, 32, 0.7) 0%,
+    rgba(64, 64, 128, 0.4) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-  border: 1px solid white;
+  border: 1px solid #ccf;
   border-radius: 10px;
   font-size: 1em;
   font-weight: 700;

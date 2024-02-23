@@ -1,3 +1,56 @@
 body {
-  background: radial-gradient(rgba(64, 64, 128, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(rgba(64, 64, 128, 0.5) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+/* CTA */
+#cta-wrapper {
+  background: radial-gradient(rgba(32, 32, 64, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: calc(var(--grid-base) * 2);
+  padding: calc(var(--grid-base) * 4);
+}
+
+#cta-headline {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.25em;
+}
+
+#cta-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: calc(var(--grid-base) * 2);
+}
+
+#cta-input {
+  border-radius: 20px;
+  font-size: 1em;
+  padding: 0 10px;
+}
+
+#cta-action {
+  background: linear-gradient(
+    180deg,
+    rgba(64, 64, 192, 0.7) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: 1px solid rgba(64, 64, 192, 0.5);
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 1em;
+}
+
+#cta-action:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(128, 128, 255, 0.8) 0%,
+    rgba(192, 192, 192, 1) 100%
+  );
+  border: 1px solid rgba(128, 128, 255, 0.8);
+  color: black;
 }

@@ -18,9 +18,12 @@ const Root = () => {
         open={feedbackModalOpen}
         onClose={() => setFeedbackModalOpen(false)}
       />
+
       <Header openFeedbackModal={() => setFeedbackModalOpen(true)} />
-      <Hook />
+      <Hero />
+      <CTA />
       <Benefits />
+      <HowItWorks />
       <CTA />
     </>
   );
@@ -31,7 +34,7 @@ const HookStyled = styled.div`
   text-align: center;
 `;
 
-const Hook = () => {
+const Hero = () => {
   return (
     <HookStyled>
       <h1>Main message</h1>
@@ -63,27 +66,9 @@ const Benefits = () => {
   );
 };
 
-const CTAWrapperStyled = styled.div`
-  background: lightblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-`;
-
-const CTAHeadlineStyled = styled.div`
-  background: lightblue;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const CTAButtonStyled = styled.button`
-  background: blue;
-  color: white;
-  width: 200px;
-  margin: 0 auto;
-`;
+const HowItWorks = () => {
+  return <div>How it works</div>;
+};
 
 const CTA = () => {
   const navigate = useNavigate();
@@ -93,10 +78,15 @@ const CTA = () => {
   };
 
   return (
-    <CTAWrapperStyled>
-      <CTAHeadlineStyled>Act now!</CTAHeadlineStyled>
-      <CTAButtonStyled onClick={onCTAClick}>Act</CTAButtonStyled>
-    </CTAWrapperStyled>
+    <div id="cta-wrapper">
+      <div id="cta-headline">Sign up and find best friends</div>
+      <div id="cta-inputs">
+        <input id="cta-input" type="text" placeholder="hello@friendy.app" />
+        <button id="cta-action" onClick={onCTAClick}>
+          Start
+        </button>
+      </div>
+    </div>
   );
 };
 
