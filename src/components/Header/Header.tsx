@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
-const HeaderStyled = styled.div`
-  height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 17, 116, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 99, 186, 1) 100%
-  );
-`;
+import "./Header.css";
 
-const Header = () => {
-  return <HeaderStyled>Header</HeaderStyled>;
+interface Props {
+  openFeedbackModal: () => void;
+}
+
+const Header = (props: Props) => {
+  return (
+    <header>
+      <div></div>
+      <div id="logo">friendy.app</div>
+      <div id="buttons">
+        <button id="feedback" onClick={props.openFeedbackModal}>
+          Feedback
+        </button>
+      </div>
+    </header>
+  );
 };
 
 export default Header;

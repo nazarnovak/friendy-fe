@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import "./FeedbackModal.css";
 
-import { default as svgX } from 'src/assets/x.svg';
-import { default as svgGreenTick } from 'src/assets/green-tick.svg';
+import { default as svgX } from "src/assets/x.svg";
+import { default as svgGreenTick } from "src/assets/green-tick.svg";
 
 import { BE_URL } from "src/consts.tsx";
 
@@ -21,7 +21,7 @@ export const FeedbackModal: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (!props.open) {
-        return;
+      return;
     }
 
     setTopic("");
@@ -30,16 +30,22 @@ export const FeedbackModal: React.FC<Props> = (props) => {
     setLoading(false);
     setFeedbackSent(false);
 
-    document.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === "Escape") { props.onClose(); }});
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        props.onClose();
+      }
+    });
   }, [props]);
 
   if (!props.open) {
-      return null;
+    return null;
   }
 
   const handleSend = () => {
     if (!topic || !email || !message) {
-      console.log("Please fill in all the input fields before sending feedback");
+      console.log(
+        "Please fill in all the input fields before sending feedback"
+      );
       return;
     }
 
@@ -47,20 +53,20 @@ export const FeedbackModal: React.FC<Props> = (props) => {
 
     fetch(BE_URL + "/feedback", {
       method: "POST",
-//       credentials: "include",
+      //       credentials: "include",
       body: JSON.stringify({ email, topic, message }),
     })
-    .then((response) => {
-      if (!response.ok) {
-        console.log("Something went wrong when submitting contact us");
-        return;
-      }
+      .then((response) => {
+        if (!response.ok) {
+          console.log("Something went wrong when submitting contact us");
+          return;
+        }
 
-      setFeedbackSent(true);
-    })
-    .finally(() => {
-      setLoading(false);
-    });
+        setFeedbackSent(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // Hack stop the scroll in the background
@@ -81,26 +87,29 @@ export const FeedbackModal: React.FC<Props> = (props) => {
             <img src={svgX} id="modal-x" alt="Close" onClick={props.onClose} />
           </div>
         </div>
-        {feedbackSent && <div className="modal-body success-body">
-            <img src={svgGreenTick} id="tick" alt="Success" />Thank you for taking your time and sharing your feedback
+        {feedbackSent && (
+          <div className="modal-body success-body">
+            <img src={svgGreenTick} id="tick" alt="Success" />
+            Thank you for taking your time and sharing your feedback
           </div>
-        }
-        {!feedbackSent &&
+        )}
+        {!feedbackSent && (
           <div className="modal-body">
-            Your opinion is very important to us, and helps us get better
-            <label className="input-label" htmlFor="email">Email</label>
+            Helps us get better for you
+            <label className="input-label" htmlFor="email">
+              Email
+            </label>
             <input
               id="email"
               type="email"
               name="email"
-              placeholder="hello@friendy.me"
+              placeholder="hello@friendy.app"
               onChange={(e) => {
                 const target = e.target as HTMLInputElement;
                 setEmail(target.value);
               }}
               disabled={loading ? true : false}
             />
-
             <label className="input-label">Topic</label>
             <select
               name="topic"
@@ -112,15 +121,20 @@ export const FeedbackModal: React.FC<Props> = (props) => {
               disabled={loading ? true : false}
               defaultValue=""
             >
-              <option value="" disabled hidden>Choose your topic</option>
+              <option value="" disabled hidden>
+                Choose your topic
+              </option>
               <option value="ideas">Ideas</option>
-              <option value="technical-difficulty">Technical difficulties</option>
+              <option value="technical-difficulty">
+                Technical difficulties
+              </option>
               <option value="question">Question</option>
               <option value="payment">Payment</option>
               <option value="other">Other</option>
             </select>
-
-            <label className="input-label" htmlFor="contact-message">Tell us what you think</label>
+            <label className="input-label" htmlFor="contact-message">
+              Tell us what you think
+            </label>
             <textarea
               id="contact-message"
               name="message"
@@ -134,24 +148,28 @@ export const FeedbackModal: React.FC<Props> = (props) => {
               disabled={loading ? true : false}
             ></textarea>
           </div>
-        }
+        )}
 
-        {feedbackSent && <button id="close" className="modal-footer" onClick={props.onClose}>Close</button>}
-        {!feedbackSent &&
-        <button
-          id="send"
-          className="modal-footer"
-          disabled={!topic || !email || !message || loading ? true : false}
-          onClick={() => {
-            handleSend();
-          }}
-        >
-          {loading ? "Sending..." : "Send"}
-        </button>
-        }
+        {feedbackSent && (
+          <button id="close" className="modal-footer" onClick={props.onClose}>
+            Close
+          </button>
+        )}
+        {!feedbackSent && (
+          <button
+            id="send"
+            className="modal-footer"
+            disabled={!topic || !email || !message || loading ? true : false}
+            onClick={() => {
+              handleSend();
+            }}
+          >
+            {loading ? "Sending..." : "Send"}
+          </button>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default FeedbackModal;

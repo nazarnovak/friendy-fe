@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -5,12 +6,19 @@ import "src/Root.css";
 
 import Header from "src/components/Header/Header";
 import ConsentBanner from "src/components/ConsentBanner/ConsentBanner";
+import FeedbackModal from "./components/FeedbackModal/FeedbackModal";
 
 const Root = () => {
+  const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
   return (
     <>
       <ConsentBanner />
-      <Header />
+      <FeedbackModal
+        open={feedbackModalOpen}
+        onClose={() => setFeedbackModalOpen(false)}
+      />
+      <Header openFeedbackModal={() => setFeedbackModalOpen(true)} />
       <Hook />
       <Benefits />
       <CTA />

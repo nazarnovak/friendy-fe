@@ -22,6 +22,11 @@
   color: var(--white);
 }
 
+html {
+  font-size: var(--font-16);
+  line-height: var(--font-16);
+}
+
 html,
 body,
 #root {
@@ -35,8 +40,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
-  font-size: var(--font-24);
-  line-height: var(--font-24);
   min-width: 320px;
   max-width: 1264px; /* as recommended by https://uxdesign.cc/responsive-layout-grid-guide-for-designers-c3ba7d161bdf */
   margin: 0 auto;
@@ -81,16 +84,21 @@ h2 {
 }
 
 /* S */
-@media (min-width: 360px) and (max-width: 655px) {}
+@media (min-width: 360px) and (max-width: 655px) {
+}
 
 /* M */
-@media (min-width: 656px) and (max-width: 1023px) {}
+@media (min-width: 656px) and (max-width: 1023px) {
+}
 
 /* L */
-@media (min-width: 1024px) and (max-width: 1279px) {}
+@media (min-width: 1024px) and (max-width: 1279px) {
+}
 
 /* XL */
-@media (min-width: 1280px) and (max-width: 1440px) {}
+@media (min-width: 1280px) and (max-width: 1440px) {
+}
 
 /* XXL */
-@media (min-width: 1440px) {}
+@media (min-width: 1440px) {
+}

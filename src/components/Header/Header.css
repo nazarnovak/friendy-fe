@@ -1,0 +1,39 @@
+header {
+  height: 60px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(32, 32, 32, 0.7) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-bottom: 1px solid #999;
+}
+
+#logo {
+  text-align: center;
+  font-size: 3em;
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#buttons {
+  text-align: right;
+}
+
+#feedback {
+  padding: 5px 15px;
+  background: linear-gradient(
+    225deg,
+    rgba(32, 32, 32, 0.7) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+}
