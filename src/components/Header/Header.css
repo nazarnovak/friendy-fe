@@ -4,8 +4,6 @@ header {
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  background: linear-gradient(135deg, #202040, #000000);
-  border-bottom: 1px solid #333;
 }
 
 #logo {
@@ -28,11 +26,11 @@ header {
 
 #feedback {
   padding: 5px 15px;
-  background: linear-gradient(225deg, #404080, #000000);
-  border: 1px solid #aac;
+  background: linear-gradient(180deg, #606090, #000000);
+  border: 1px solid #66a;
   border-radius: 10px;
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
 }
 
