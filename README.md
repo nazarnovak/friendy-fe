@@ -2,7 +2,7 @@ CloudFlare as hosting solution
 
 # Basic components
 - [x] Cookies
-	Just maaaybe there could be an issue with responsiveness, because inspecting it in mobile view on a mac showed that the text didn't fit and I couldn't see the button. It looked great in the iPhone tho, so I'll skip it for now. Added it to [[#Slice 2 Gather feedback from slice 1]]
+	Just maaybe there could be an issue with responsiveness, because inspecting it in mobile view on a mac showed that the text didn't fit and I couldn't see the button. It looked great in the iPhone tho, so I'll skip it for now. Added it to [[#Slice 2 Gather feedback from slice 1]]
 - [x] Emails
 	- [x] Set up a company email
 		Bought an email at Hover.com. Tried using it, and for a week it would not send emails and sent emails to the email would bounce and not be sent. After reaching out to support, this is what they replied with, and I'm waiting for the DNS to finalize to confirm it works... fucking DNS and hosts and stuff, it's just all so convoluted
