@@ -25,13 +25,18 @@ header {
 }
 
 #feedback {
-  padding: 5px 15px;
-  background: linear-gradient(180deg, #606090, #000000);
+  padding: 6px 15px;
+  background: linear-gradient(180deg, #9090e0, #111);
   border: 1px solid #66a;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1em;
   font-weight: 500;
   cursor: pointer;
+}
+
+#feedback:hover {
+  background: linear-gradient(180deg, #d0d0f0, #9090e0);
+  color: black;
 }
 
 @media (min-width: 360px) and (max-width: 655px) {
